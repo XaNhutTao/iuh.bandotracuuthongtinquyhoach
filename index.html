@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="WebGIS tra cứu quy hoạch sử dụng đất Xã Nhựt Tảo, Tỉnh Tây Ninh">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; frame-ancestors 'none'; base-uri 'self'">
+  <title>Nhựt Tảo WebGIS</title>
+  <style>
+    :root {
+      --water: #d4eef8;
+      --water-2: #d0effa;
+      --blue: #1a9fd1;
+      --blue-deep: #0d7aa8;
+      --ink: #063d54;
+      --muted: #5a8a9e;
+      --foam: #ffffff;
+      --font: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: var(--font);
+      color: var(--ink);
+      min-height: 100vh;
+      background: linear-gradient(165deg, #f5fcff 0%, #d4eef8 40%, #c8ebf7 100%);
+      line-height: 1.6;
+    }
+    .page { max-width: 960px; margin: 0 auto; padding: 40px 20px 80px; }
+    .hero { text-align: center; padding: 40px 12px 28px; }
+    .drop {
+      width: 72px; height: 72px; margin: 0 auto 18px;
+      border-radius: 50% 50% 50% 12%;
+      background: linear-gradient(145deg, var(--blue), var(--blue-deep));
+      color: #fff; display: grid; place-items: center;
+      font-weight: 900; font-size: 18px;
+      box-shadow: 0 12px 32px rgba(26, 142, 184, 0.3);
+      transform: rotate(-8deg);
+    }
+    .hero h1 {
+      font-size: clamp(28px, 5vw, 42px);
+      font-weight: 800; line-height: 1.15; margin-bottom: 10px;
+    }
+    .hero h1 span { color: var(--blue-deep); }
+    .hero p { color: var(--muted); font-size: 15px; max-width: 480px; margin: 0 auto 24px; }
+    .cta {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: linear-gradient(135deg, var(--blue), var(--blue-deep));
+      color: #fff; font-weight: 800; font-size: 15px;
+      padding: 14px 28px; border-radius: 999px; text-decoration: none;
+      box-shadow: 0 10px 28px rgba(26, 142, 184, 0.3);
+    }
+    .cta:hover { filter: brightness(1.05); }
+    .stats {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;
+      margin: 28px 0;
+    }
+    .stat {
+      background: rgba(255,255,255,0.75);
+      border: 1px solid rgba(59,184,224,0.25);
+      border-radius: 40% 60% 50% 50% / 50% 40% 60% 50%;
+      padding: 22px 12px; text-align: center;
+      box-shadow: 0 8px 24px rgba(26,142,184,0.1);
+    }
+    .stat .v { font-size: 20px; font-weight: 800; color: var(--blue-deep); }
+    .stat .l { font-size: 11px; font-weight: 600; color: var(--muted); text-transform: uppercase; margin-top: 4px; }
+    .card {
+      background: rgba(255,255,255,0.8);
+      border: 1px solid rgba(59,184,224,0.22);
+      border-radius: 32px 48px 36px 44px / 40px 36px 48px 32px;
+      padding: 24px 26px; margin-bottom: 16px;
+      box-shadow: 0 8px 28px rgba(26,142,184,0.1);
+    }
+    .card h2 {
+      font-size: 12px; font-weight: 800; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--blue); margin-bottom: 10px;
+    }
+    .card p { font-size: 14.5px; color: var(--ink); margin-bottom: 10px; }
+    .note {
+      margin-top: 12px; padding: 12px 14px;
+      border-radius: 24px;
+      background: #fff8e6;
+      border-left: 4px solid #f5b942;
+      font-size: 13px; color: #7a5a12; line-height: 1.5;
+    }
+    footer { text-align: center; color: var(--muted); font-size: 12px; margin-top: 20px; }
+    @media (max-width: 600px) {
+      .stats { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="hero">
+      <div class="drop">NT</div>
+      <h1>Tra cứu quy hoạch<br><span>Xã Nhựt Tảo</span></h1>
+      <p>Bản đồ số · 30.327 thửa · Kỳ quy hoạch 2021–2030 · Tây Ninh</p>
+      <a class="cta" href="map.html">Vào bản đồ tra cứu →</a>
+    </header>
+
+    <div class="stats">
+      <div class="stat"><div class="v">30.327</div><div class="l">Thửa đất</div></div>
+      <div class="stat"><div class="v">104</div><div class="l">Tờ bản đồ</div></div>
+      <div class="stat"><div class="v">36,45 km²</div><div class="l">Diện tích xã</div></div>
+      <div class="stat"><div class="v">2021–2030</div><div class="l">Kỳ quy hoạch</div></div>
+      <div class="stat"><div class="v">105°45′</div><div class="l">VN-2000</div></div>
+      <div class="stat"><div class="v">30.168</div><div class="l">Dân số</div></div>
+    </div>
+
+    <section class="card">
+      <h2>Giới thiệu</h2>
+      <p>Trang web phục vụ tra cứu và hiển thị thông tin quy hoạch sử dụng đất trên nền tảng WebGIS. Người dùng tìm kiếm và xem thông tin thửa đất một cách trực quan qua bản đồ trực tuyến.</p>
+      <div class="note"><strong>Lưu ý:</strong> Phục vụ học tập – nghiên cứu (khóa luận tốt nghiệp). Dữ liệu chỉ mang tính tham khảo, không có giá trị pháp lý và không thay thế hồ sơ chính thức.</div>
+    </section>
+
+    <section class="card">
+      <h2>Địa bàn &amp; dữ liệu</h2>
+      <p>Xã Nhựt Tảo, tỉnh Tây Ninh. Hệ tọa độ <strong>VN-2000</strong>, kinh tuyến trục <strong>105°45′</strong>. Dữ liệu <strong>30.327 thửa / 104 tờ</strong>, kỳ quy hoạch <strong>2021–2030</strong>.</p>
+    </section>
+
+    <footer>Xã Nhựt Tảo · Tỉnh Tây Ninh · Chỉ mang tính tham khảo</footer>
+  </div>
+</body>
+</html>
